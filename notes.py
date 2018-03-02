@@ -5,12 +5,18 @@ import time
 i=0
 index =0
 def buttonAddDef():
+	'''
+	Кнопка ДОБАВИТЬ
+	'''
 	#print (message.get())
 	listbox.insert(END,time.get()[0:5].strip()+ ' '+ message.get().strip())
 	print (listbox.get(0, END)[0])
 
 
 def tick ():
+	'''
+	Главный фоновый процесс
+	'''
 	global i	
 #	time.sleep(1)
 	if i%2 == 0: 
@@ -22,10 +28,16 @@ def tick ():
 	root.after(1000, tick)
 
 def buttonDelDef():
+	'''
+	Кнопка УДАЛИТЬ
+	'''
 	print(listbox.curselection())
 	listbox.delete(listbox.curselection())
 
 def buttonChangeDef():
+	'''
+	Кнопка ИЗМЕНИТЬ
+	'''
 	listbox.insert(listbox.curselection(), time.get()[0:5].strip() + ' '+ message.get().strip() )
 	listbox.delete(listbox.curselection())
 	
